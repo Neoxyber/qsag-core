@@ -1,0 +1,82 @@
+# Publishes qsag-core to PyPI using Trusted Publishing (OIDC)
+# No API tokens stored anywhere — GitHub authenticates directly with PyPI
+# Triggers only on version tags: git tag v0.1.0 && git push --tags
+#
+# Security: pypi environment restricted to main branch only
+# Attestations: automatically generated proving package came from this repo/workflow
+
+name: Publish to PyPI
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  # ── Job 1: Run tests before publishing ──────────────────────────────────────
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package and test dependencies
+        run: |
+          pip install -e .
+          pip install pytest
+
+      - name: Run tests
+        run: pytest tests/ -v
+
+  # ── Job 2: Build distribution ────────────────────────────────────────────────
+  build:
+    name: Build distribution
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build tools
+        run: pip install build
+
+      - name: Build wheel and sdist
+        run: python -m build
+
+      - name: Upload distributions as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+  # ── Job 3: Publish to PyPI with Trusted Publishing ───────────────────────────
+  publish:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    needs: build
+    environment: pypi          # Protected environment — main branch only
+    permissions:
+      id-token: write          # Required for OIDC Trusted Publishing
+      contents: read           # Read repo contents
+
+    steps:
+      - name: Download distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        # No username, password, or API token needed
+        # PyPI Trusted Publishing handles authentication via OIDC
+        # Attestations are generated automatically (PEP 740)
+        with:
+          print-hash: true
