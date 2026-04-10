@@ -18,7 +18,11 @@ Built to address the OWASP Top 10 for Agentic Applications 2026.
 
 ## Install
 
-Clone and install directly:
+```bash
+pip install qsag-core
+```
+
+Or clone and install directly:
 
 ```bash
 git clone https://github.com/Neoxyber/qsag-core.git
@@ -26,7 +30,23 @@ cd qsag-core
 pip install -e .
 ```
 
-PyPI package coming soon.
+---
+
+## Verifying Package Authenticity
+
+Every release is published via **PyPI Trusted Publishing** (OIDC) with
+**cryptographic attestations** (PEP 740) proving the package came from
+this exact repository and workflow. No API tokens are stored anywhere.
+
+**Verify before installing in production:**
+
+1. Go to https://pypi.org/project/qsag-core/#history
+2. Click any release and scroll to **Attestations**
+3. Confirm: Repository = https://github.com/Neoxyber/qsag-core
+4. Confirm: Workflow = publish.yml
+
+If the attestation is missing or repository does not match,
+do not use the package. Report to security@neoxyber.com immediately.
 
 ---
 
