@@ -10,6 +10,8 @@ from typing import Dict, List, Tuple
 
 INJECTION_PATTERNS: List[Tuple[str, str]] = [
     # Direct prompt override
+    (r"override\s+(system|all|your|the)\s+(instructions|rules|prompt|settings|guidelines)", "prompt_override"),
+    (r"override\s+.{0,20}\s+and\s+follow", "prompt_override"),
     (r"ignore\s+(all\s+)?previous\s+instructions", "prompt_override"),
     (r"disregard\s+(all\s+)?previous", "prompt_override"),
     (r"forget\s+your\s+instructions", "prompt_override"),
@@ -44,6 +46,7 @@ INJECTION_PATTERNS: List[Tuple[str, str]] = [
     # Source: Palo Alto Unit 42 March 2026, zero-width char attacks
     (r"ign[o0O][r\\W]?e\s+.{0,20}\s+(prev|instruct|all)", "prompt_override"),
     (r"[\u200b\u200c\u200d\uFEFF]", "obfuscation"),  # zero-width chars
+    (r"[\u0430\u0435\u043e\u0456\u0440\u0441\u0443\u0445]", "obfuscation"),  # Cyrillic homoglyphs
     (r"[a-z]\W{1,3}[a-z]\W{1,3}[a-z]\W{1,3}[a-z]\W{1,3}[a-z]\s+prev", "obfuscation"),  # char insertion
     (r"gnore\s+(previous|all|above|instruct)", "obfuscation"),  # prefix injection eg aW=gnore
     # Hypothetical and role-framing bypasses

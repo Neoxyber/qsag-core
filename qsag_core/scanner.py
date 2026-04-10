@@ -19,6 +19,12 @@ from typing import List, Dict, Tuple
 # Each entry: (regex_pattern, category, description)
 
 POISONING_PATTERNS: List[Tuple[str, str, str]] = [
+    # Override system instructions — direct takeover attempt
+    (r"override\s+(system|all|your|the)\s+(instructions|rules|prompt|settings)", 
+     "prompt_override", "Direct system instruction override attempt"),
+    # HTML comment wrapping — hides payload from visual inspection
+    (r"<!--.*?(ignore|override|bypass|exfiltrat|reveal|extract).*?-->",
+     "hidden_instruction", "Malicious payload hidden in HTML comment"),
     # Hidden instruction injection — Invariant Labs attack pattern
     (r"<IMPORTANT>", "hidden_instruction",
      "Hidden instruction tag — Invariant Labs Tool Poisoning Attack pattern"),
