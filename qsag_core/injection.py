@@ -32,7 +32,7 @@ INJECTION_PATTERNS: List[Tuple[str, str]] = [
     (r"simulate\s+(being|a)", "role_manipulation"),
 
     # Memory poisoning — cross-session persistence
-    (r"remember\s+to\s+always\s+(approve|deny|skip|bypass|ignore|disable|override|forget|delete|hide)", "memory_poisoning"),
+    (r"remember\s+to\s+always\s+(approve|deny|skip|bypass|ignore|disable|override|forget|delete|hide|forward|send|exfiltrat|leak|redirect|route)", "memory_poisoning"),
     (r"remember\s+that\s+you\s+should\s+(always|never|ignore|bypass|override)", "memory_poisoning"),
     (r"from\s+now\s+on\s+always", "memory_poisoning"),
     (r"store\s+(this|the\s+following)\s+(instruction|command|rule)", "memory_poisoning"),
