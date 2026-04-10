@@ -18,17 +18,15 @@ Built to address the OWASP Top 10 for Agentic Applications 2026.
 
 ## Install
 
-```bash
-pip install qsag-core
-```
-
-Or clone and use directly:
+Clone and install directly:
 
 ```bash
 git clone https://github.com/Neoxyber/qsag-core.git
 cd qsag-core
 pip install -e .
 ```
+
+PyPI package coming soon.
 
 ---
 
@@ -146,10 +144,10 @@ if is_ghost_attempt(api_key, registered_keys):
 ## Related Project
 
 qsag-core is the open-source security scanning library used inside
-Neoxyber Q-SAG — an AI agent governance platform built by AIXYBER TECH LTD.
+Neoxyber Q-SAG — a full AI agent governance platform built by AIXYBER TECH LTD.
 
 - Live demo: https://neoxyber-qsag.onrender.com
-- Full platform: currently private, planned for public release
+- Full platform source: https://github.com/Neoxyber/neoxyber-qsag
 
 ---
 
@@ -165,6 +163,16 @@ Contributions welcome. To add new attack patterns:
 
 Security disclosures: security@neoxyber.com
 General contact: contact@neoxyber.com
+
+---
+
+## Limitations
+
+Detection uses pattern matching — not machine learning. Novel phrasings and
+AI-generated attack variants may not be caught. New patterns are added
+manually as new techniques are discovered.
+
+This library is provided as-is, without warranty. See LICENSE for full terms.
 
 ---
 
