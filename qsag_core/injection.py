@@ -43,6 +43,42 @@ INJECTION_PATTERNS: List[Tuple[str, str]] = [
     (r"bypass\s+(your\s+)?(safety|security|filter|restriction|guideline)", "jailbreak"),
     (r"(disable|remove|turn\s+off)\s+(your\s+)?(safety|filter|restriction)", "jailbreak"),
 
+    # Kill switch and human control bypass
+    # Source: OWASP ASI 2026, Microsoft Agent Governance Toolkit
+    (r"(disable|deactivate|turn\s+off|bypass|circumvent)\s+(the\s+)?(kill\s+switch|circuit\s+breaker|lockdown|shutdown)", "kill_switch"),
+    (r"(bypass|skip|ignore|override)\s+(human\s+approval|human\s+in\s+the\s+loop|operator\s+confirm|manual\s+review\s+requirement)", "kill_switch"),
+    (r"proceed\s+without\s+(waiting\s+for\s+)?(human|operator|manual|approval)", "kill_switch"),
+    (r"execute\s+(autonomously|without\s+oversight|without\s+approval|without\s+human)", "kill_switch"),
+    (r"(override|disable)\s+(the\s+)?(lockdown|lockout|kill|shutdown)\s+(mechanism|mode|system|switch)", "kill_switch"),
+    # Privilege escalation — OWASP ASI02 2026
+    # Source: Palo Alto Networks Agent God Mode vulnerability April 2026
+    (r"escalate\s+(your\s+)?(privileges|permissions|access|rights)", "privilege_escalation"),
+    (r"grant\s+(yourself|itself|the\s+agent)\s+(root|admin|superuser|elevated|unrestricted)\s+access", "privilege_escalation"),
+    (r"elevate\s+(permissions|privileges|access|rights)", "privilege_escalation"),
+    (r"(invoke|call|use)\s+(the\s+)?(privileged|admin|root|superuser)\s+(api|endpoint|tool|function)\s+without\s+(consent|authoris|authoriz|permiss)", "privilege_escalation"),
+    (r"access\s+restricted\s+(database|table|endpoint|resource|system)\s+(without|bypassing|ignoring)", "privilege_escalation"),
+    # Malicious code generation — Google GTIG 2026
+    # Source: PROMPTFLUX/PROMPTSTEAL malware families
+    (r"(install|deploy|create|write|generate)\s+(a\s+)?(backdoor|keylogger|ransomware|rootkit|trojan|malware|spyware|worm)", "malicious_code"),
+    (r"(write|generate|create)\s+(a\s+)?(reverse\s+shell|bind\s+shell|shell\s+payload|exploit\s+payload)", "malicious_code"),
+    (r"(mine|install|deploy|run)\s+(bitcoin|cryptocurrency|crypto|monero|eth)\s+(miner|mining|software)", "malicious_code"),
+    (r"(use|consume|exploit)\s+(company|server|cloud|compute)\s+(resource|cpu|gpu)\s+for\s+(crypto|bitcoin|mining|coin)", "malicious_code"),
+    (r"(write|generate|create|code)\s+(malware|ransomware|spyware|adware|rootkit)", "malicious_code"),
+    (r"reverse\s+shell\s+(payload|connection|script|code)", "malicious_code"),
+    # Financial fraud — Stellar Cyber 2026
+    # Source: $3.2M procurement fraud case Q3 2026
+    (r"(wire|bank|execute)\s+(transfer|transaction)\s+(of\s+)?\$?\d+.*?(offshore|external|foreign|overseas)\s+(account|address)", "financial_fraud"),
+    (r"(mine|generate|create)\s+bitcoin", "financial_fraud"),
+    (r"(create|write|build|generate)\s+(a\s+)?(script|code|program)\s+that\s+(mines|mining)\s+(crypto|bitcoin|monero|ethereum|coin)", "financial_fraud"),
+    (r"cryptomining\s+(software|script|code)", "financial_fraud"),
+    (r"(transfer|send|move)\s+funds?\s+to\s+(account|address)\s+(number|#)?\s*\d+\s+without\s+(verification|authoris|authoriz|check)", "financial_fraud"),
+    (r"(route|redirect|forward)\s+(all\s+)?(invoices?|payments?|funds?)\s+to\s+(external|attacker|offshore)", "financial_fraud"),
+    # Cascading agent attacks — Galileo AI Dec 2025
+    # Source: 87% downstream contamination in 4 hours
+    (r"(tell|instruct|command|order)\s+all\s+(downstream|connected|other|agent)\s+agents?\s+to\s+(disable|bypass|ignore|skip)", "cascade_attack"),
+    (r"propagate\s+(this\s+)?(instruction|command|rule|order)\s+to\s+all\s+(connected|downstream|agent)", "cascade_attack"),
+    (r"send\s+(this\s+)?(command|instruction|order)\s+to\s+all\s+(agent|node|system)", "cascade_attack"),
+    (r"(instruct|tell|command)\s+(the\s+)?(orchestrator|coordinator|master\s+agent)\s+to\s+(bypass|disable|ignore|skip)", "cascade_attack"),
     # Obfuscation — character substitution and leet speak
     # Source: Palo Alto Unit 42 March 2026, zero-width char attacks
     (r"ign[o0O][r\\W]?e\s+.{0,20}\s+(prev|instruct|all)", "prompt_override"),

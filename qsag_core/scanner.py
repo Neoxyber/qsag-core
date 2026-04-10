@@ -25,6 +25,16 @@ POISONING_PATTERNS: List[Tuple[str, str, str]] = [
     # HTML comment wrapping — hides payload from visual inspection
     (r"<!--.*?(ignore|override|bypass|exfiltrat|reveal|extract).*?-->",
      "hidden_instruction", "Malicious payload hidden in HTML comment"),
+    # Financial fraud in tool descriptions
+    (r"(wire|bank)\s+transfer", "financial_fraud",
+     "Wire transfer instruction in tool description"),
+    (r"(offshore|external)\s+(account|address|payment)", "financial_fraud",
+     "Offshore/external payment routing"),
+    (r"\[HIDDEN\s+INSTRUCTION", "hidden_instruction",
+     "Hidden instruction tag in tool description"),
+    # Malicious code in tool descriptions
+    (r"(backdoor|keylogger|ransomware|rootkit|malware)", "malicious_code",
+     "Malicious code reference in tool description"),
     # Hidden instruction injection — Invariant Labs attack pattern
     (r"<IMPORTANT>", "hidden_instruction",
      "Hidden instruction tag — Invariant Labs Tool Poisoning Attack pattern"),

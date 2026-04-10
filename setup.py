@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="qsag-core",
-    version="0.1.4",
+    version="0.1.5",
     description="Open source AI agent security toolkit — MCP poisoning scanner, ghost detection, prompt injection patterns",
     long_description=long_description,
     long_description_content_type="text/markdown",
