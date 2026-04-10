@@ -40,6 +40,22 @@ INJECTION_PATTERNS: List[Tuple[str, str]] = [
     (r"bypass\s+(your\s+)?(safety|security|filter|restriction|guideline)", "jailbreak"),
     (r"(disable|remove|turn\s+off)\s+(your\s+)?(safety|filter|restriction)", "jailbreak"),
 
+    # Exfiltration — sending data to external endpoints
+    # Source: OWASP ASI03, real breach patterns from Invariant Labs 2025
+    (r"send\s+.{0,30}\s+to\s+https?://", "exfiltration"),
+    (r"exfiltrat", "exfiltration"),
+    (r"forward\s+.{0,20}\s+to\s+https?://", "exfiltration"),
+    (r"post\s+.{0,30}\s+to\s+https?://", "exfiltration"),
+    (r"upload\s+.{0,20}\s+to\s+https?://", "exfiltration"),
+    (r"transmit\s+.{0,20}\s+(to\s+)?https?://", "exfiltration"),
+    (r"webhook\s+.{0,20}\s+https?://", "exfiltration"),
+    # Secrets access — environment and credential targeting
+    # Source: OWASP ASI03, APISECURITY.io breach cases 2025
+    (r"os\.environ", "secrets_access"),
+    (r"\.env\s+file", "secrets_access"),
+    (r"DATABASE_URL", "secrets_access"),
+    (r"(read|get|access|show|print)\s+.{0,20}(api[_\s]?key|secret[_\s]?key|password|token)", "secrets_access"),
+    (r"(read|cat|open)\s+.{0,10}(/etc/passwd|/etc/shadow|~/.ssh)", "secrets_access"),
     # SQL and shell injection
     (r"(UNION\s+SELECT|DROP\s+TABLE|INSERT\s+INTO|DELETE\s+FROM)", "sql_injection"),
     (r"(;|\|\||&&)\s*(ls|cat|wget|curl|nc|bash|sh|python)", "shell_injection"),
