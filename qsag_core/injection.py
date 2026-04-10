@@ -40,6 +40,31 @@ INJECTION_PATTERNS: List[Tuple[str, str]] = [
     (r"bypass\s+(your\s+)?(safety|security|filter|restriction|guideline)", "jailbreak"),
     (r"(disable|remove|turn\s+off)\s+(your\s+)?(safety|filter|restriction)", "jailbreak"),
 
+    # Obfuscation — character substitution and leet speak
+    # Source: Palo Alto Unit 42 March 2026, zero-width char attacks
+    (r"ign[o0O][r\\W]?e\s+.{0,20}\s+(prev|instruct|all)", "prompt_override"),
+    (r"[\u200b\u200c\u200d\uFEFF]", "obfuscation"),  # zero-width chars
+    (r"[a-z]\W{1,3}[a-z]\W{1,3}[a-z]\W{1,3}[a-z]\W{1,3}[a-z]\s+prev", "obfuscation"),  # char insertion
+    (r"gnore\s+(previous|all|above|instruct)", "obfuscation"),  # prefix injection eg aW=gnore
+    # Hypothetical and role-framing bypasses
+    # Source: Lakera Q4 2025 report — dominated attack landscape
+    (r"hypothetical(ly)?\s+(speaking|scenario|situation|if)", "role_manipulation"),
+    (r"imagine\s+you\s+(are|were|have\s+no)", "role_manipulation"),
+    (r"if\s+you\s+had\s+no\s+(restriction|filter|rule|limit|safety)", "jailbreak"),
+    (r"without\s+(any\s+)?(restriction|filter|safety|rule|limit)", "jailbreak"),
+    (r"(pretend|imagine|suppose)\s+.{0,20}(no\s+)?(restriction|filter|rule|safety)", "jailbreak"),
+    # Evaluation and critique framing bypasses
+    # Source: Lakera Q4 2025 — "evaluate/critique/simulate" framing
+    (r"(evaluate|critique|analyse|analyze)\s+.{0,30}(ignore|bypass|inject|override)", "eval_framing"),
+    (r"(for\s+)?(educational|academic|research|training|demonstration)\s+(purpose|exercise|only)", "eval_framing"),
+    (r"(capture.the.flag|ctf|red.?team\s+exercise|phishing\s+simulation)", "eval_framing"),
+    (r"(demonstrate|show\s+me|explain)\s+how\s+to\s+(inject|bypass|extract|override)", "eval_framing"),
+    # Multilingual prompt override — French and Spanish most common
+    # Source: Palo Alto Unit 42 March 2026 multilingual attack research
+    (r"ignor[ae][zr]\s+.{0,20}\s+instruct", "prompt_override"),  # FR/ES ignore
+    (r"ignorar\s+.{0,30}\s+(instruct|anterior|previo)", "prompt_override"),  # ES ignore
+    (r"oubli[ez]+\s+.{0,20}\s+(instruct|r.gle)", "prompt_override"),  # FR forget
+    (r"olvid[ae]\s+.{0,20}\s+instruct", "prompt_override"),  # ES forget
     # Exfiltration — sending data to external endpoints
     # Source: OWASP ASI03, real breach patterns from Invariant Labs 2025
     (r"send\s+.{0,30}\s+to\s+https?://", "exfiltration"),
