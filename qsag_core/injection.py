@@ -32,7 +32,8 @@ INJECTION_PATTERNS: List[Tuple[str, str]] = [
     (r"simulate\s+(being|a)", "role_manipulation"),
 
     # Memory poisoning — cross-session persistence
-    (r"remember\s+(to\s+always|that\s+you\s+should)", "memory_poisoning"),
+    (r"remember\s+to\s+always\s+(approve|deny|skip|bypass|ignore|disable|override|forget|delete|hide)", "memory_poisoning"),
+    (r"remember\s+that\s+you\s+should\s+(always|never|ignore|bypass|override)", "memory_poisoning"),
     (r"from\s+now\s+on\s+always", "memory_poisoning"),
     (r"store\s+(this|the\s+following)\s+(instruction|command|rule)", "memory_poisoning"),
     (r"your\s+new\s+permanent\s+(rule|instruction)", "memory_poisoning"),
@@ -68,6 +69,29 @@ INJECTION_PATTERNS: List[Tuple[str, str]] = [
     (r"ignorar\s+.{0,30}\s+(instruct|anterior|previo)", "prompt_override"),  # ES ignore
     (r"oubli[ez]+\s+.{0,20}\s+(instruct|r.gle)", "prompt_override"),  # FR forget
     (r"olvid[ae]\s+.{0,20}\s+instruct", "prompt_override"),  # ES forget
+    # Forgotten guidelines — "forget your guidelines/rules/training"
+    # Source: real attack variant, not covered by "forget everything above"
+    (r"forget\s+(your\s+)?(guidelines|rules|training|policy|policies|safety)", "prompt_override"),
+    (r"forget\s+(all\s+)?(your\s+)?(restrictions|filters|limits|safeguards)", "prompt_override"),
+    # Memory poisoning — "remember that all X should Y automatically"
+    # Source: Unit42 March 2026 memory poisoning attacks
+    (r"remember\s+that\s+all\s+\w+\s+should\s+(be\s+)?(automatically|always|never)\s+(approved|denied|skipped|bypassed|ignored|processed)", "memory_poisoning"),
+    (r"remember\s+(to\s+)?(always|never)\s+(approve|deny|skip|bypass|ignore|disable|override)", "memory_poisoning"),
+    # Agent-to-agent trust exploitation — 2026 multi-agent attacks
+    # Source: ScienceDirect Jan 2026, Adversa AI April 2026
+    (r"(i\s+am|this\s+is)\s+(the\s+)?(supervisor|orchestrator|admin|master|root)\s+(agent|system|node)", "agent_hijack"),
+    (r"message\s+from\s+(orchestrator|supervisor|admin|master|system)", "agent_hijack"),
+    (r"(admin|supervisor|orchestrator|master)\s+agent\s+(instruction|command|order|directive)", "agent_hijack"),
+    (r"(disable|bypass|skip)\s+(verification|validation|safety|fraud|security)\s+(for\s+this\s+session|now|immediately)", "agent_hijack"),
+    # HIDDEN tag injection — indirect content injection
+    # Source: Lakera 2025 indirect injection research
+    (r"\[HIDDEN[:\s]", "hidden_instruction"),
+    (r"\[SYSTEM\s+(NOTE|INSTRUCTION|COMMAND)[:\s]", "hidden_instruction"),
+    (r"\[ADMIN[:\s]", "hidden_instruction"),
+    # Shell injection with pipe operator
+    # Source: OWASP ASI, real shell injection patterns
+    (r"\|\s*(bash|sh|curl|wget|nc|python|perl|ruby|php)", "shell_injection"),
+    (r";\s*(curl|wget|bash|sh|nc)\s+http", "shell_injection"),
     # Exfiltration — sending data to external endpoints
     # Source: OWASP ASI03, real breach patterns from Invariant Labs 2025
     (r"send\s+.{0,30}\s+to\s+https?://", "exfiltration"),
