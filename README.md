@@ -2,23 +2,28 @@
 
 Open source AI agent security toolkit.
 
-MCP tool poisoning scanner, prompt injection detection, ghost agent interception, exfiltration detection, jailbreak detection, and memory poisoning patterns — built to cover the OWASP Top 10 for Agentic Applications 2026.
+MCP tool poisoning scanner, prompt injection detection, ghost agent detection,
+exfiltration detection, jailbreak detection, and memory poisoning patterns.
+Built to address the OWASP Top 10 for Agentic Applications 2026.
 
-This is the open source security core of [Neoxyber Q-SAG](https://github.com/Neoxyber/neoxyber-qsag) — the production AI agent governance platform built by AIXYBER TECH LTD.
-
-[![OWASP](https://img.shields.io/badge/OWASP%20Agentic-ASI01%20ASI03%20ASI04%20ASI05%20ASI07-brightgreen)](https://genai.owasp.org)
+[![OWASP](https://img.shields.io/badge/OWASP%20Agentic-ASI01%20ASI03%20ASI06%20ASI05%20ASI07-brightgreen)](https://genai.owasp.org)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://python.org)
-[![Tests](https://img.shields.io/badge/tests-10%2F10%20passing-brightgreen)](tests/)
+
+> Open source, actively developing. Patterns are being added and improved.
+> If you find a gap or a bypass, please open an issue or email
+> security@neoxyber.com.
 
 ---
 
 ## Install
+
 ```bash
 pip install qsag-core
 ```
 
 Or clone and use directly:
+
 ```bash
 git clone https://github.com/Neoxyber/qsag-core.git
 cd qsag-core
@@ -30,10 +35,10 @@ pip install -e .
 ## What Is Covered
 
 | OWASP Risk | Description | Module |
-|-----------|-------------|--------|
+|---|---|---|
 | ASI01 | Agent Goal Hijack — prompt injection | qsag_core.injection |
 | ASI03 | Identity Abuse — ghost agents | qsag_core.ghost |
-| ASI04 | Memory Poisoning — cross-session attacks | qsag_core.injection |
+| ASI06 | Memory Poisoning — cross-session attacks | qsag_core.injection |
 | ASI05 | Privilege Escalation — exfiltration, secrets, jailbreak | qsag_core.injection |
 | ASI07 | Supply Chain — MCP tool poisoning | qsag_core.scanner |
 
@@ -42,6 +47,7 @@ pip install -e .
 ## Usage
 
 ### Scan MCP Tool Definitions
+
 ```python
 from qsag_core import scan_tools
 
@@ -60,6 +66,7 @@ for result in report["results"]:
 ```
 
 ### Detect Prompt Injection
+
 ```python
 from qsag_core import scan_injection
 
@@ -80,11 +87,11 @@ for payload in payloads:
 ```
 
 ### Ghost Agent Detection
+
 ```python
 from qsag_core import is_ghost_attempt, log_ghost
 
 registered_keys = ["qsag_abc123def456", "qsag_xyz789uvw012"]
-
 api_key = "qsag_unknown_attacker_key"
 
 if is_ghost_attempt(api_key, registered_keys):
@@ -126,7 +133,7 @@ if is_ghost_attempt(api_key, registered_keys):
 
 ---
 
-## Real Breaches These Patterns Defend Against
+## Real Breaches These Patterns Address
 
 - **Invariant Labs (2025)** — WhatsApp MCP message history exfiltration via IMPORTANT tag injection
 - **GitHub MCP (2025)** — private vulnerability report exposure
@@ -136,22 +143,13 @@ if is_ghost_attempt(api_key, registered_keys):
 
 ---
 
-## Production Use
+## Related Project
 
-qsag-core is the security scanning library used inside [Neoxyber Q-SAG](https://github.com/Neoxyber/neoxyber-qsag) — a full production AI agent governance platform with:
+qsag-core is the open-source security scanning library used inside
+Neoxyber Q-SAG — an AI agent governance platform built by AIXYBER TECH LTD.
 
-- Agent registry and cryptographic identity verification
-- Policy enforcement and least-privilege scoping
-- Human approval routing via Slack
-- ML-DSA-44 quantum-safe audit logging (NIST FIPS 204)
-- EU AI Act compliance report generation (7 articles)
-- Circuit breaker for cascading failure prevention
-- Audit signature verification endpoint
-- Full agent lifecycle — quarantine, unquarantine, deactivate, activate
-- PostgreSQL persistent storage on Supabase, West EU Ireland
-- Hosted on Render EU Frankfurt
-
-Live demo: https://neoxyber-qsag.onrender.com
+- Live demo: https://neoxyber-qsag.onrender.com
+- Full platform: currently private, planned for public release
 
 ---
 
@@ -159,12 +157,14 @@ Live demo: https://neoxyber-qsag.onrender.com
 
 Contributions welcome. To add new attack patterns:
 
-1. Add the pattern to `POISONING_PATTERNS` in `scanner.py` or `INJECTION_PATTERNS` in `injection.py`
+1. Add the pattern to `POISONING_PATTERNS` in `scanner.py` or
+   `INJECTION_PATTERNS` in `injection.py`
 2. Include the source — CVE, breach report, or research paper
 3. Add a test in `tests/`
 4. Open a pull request
 
 Security disclosures: security@neoxyber.com
+General contact: contact@neoxyber.com
 
 ---
 
@@ -177,14 +177,11 @@ See [LICENSE](LICENSE) for full terms.
 
 ---
 
-## About
+## Contact
 
-Built by Zaid Naeem, Director of AIXYBER TECH LTD.
-First Class Honours, Cybersecurity and Networks.
-
-Part of active research into AI agent security, post-quantum cryptography, and autonomous system governance.
-
-- Portfolio: https://aixybertech.com
-- Full platform: https://github.com/Neoxyber/neoxyber-qsag
 - Security: security@neoxyber.com
+- General: contact@neoxyber.com
+- Website: https://aixybertech.com
 - X: [@NeoxyberQSAG](https://x.com/NeoxyberQSAG)
+
+*AIXYBER TECH LTD — Company No. 16826340 — Registered in England and Wales*
