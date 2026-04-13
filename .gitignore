@@ -13,3 +13,8 @@ venv/
 .DS_Store
 .idea/
 .vscode/
+
+# Scratch files
+*.bak
+patch_*.py
+*_patch.py
