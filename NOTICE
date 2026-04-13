@@ -1,0 +1,41 @@
+qsag-core
+Copyright 2026 AIXYBER TECH LTD (Company No. 16826340)
+trading as Neoxyber
+ICO Registration: ZC071900
+
+This product is licensed under the Apache License, Version 2.0.
+You may obtain a copy of the License at:
+http://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+PRODUCT
+================================================================================
+
+qsag-core is the open source Python client library for the Neoxyber Q-SAG
+Universal Agent Governance Standard. It is a product of AIXYBER TECH LTD
+trading as Neoxyber, registered in England and Wales.
+
+  PyPI:      https://pypi.org/project/qsag-core/
+  Repo:      https://github.com/Neoxyber/qsag-core
+  Platform:  https://qsag.neoxyber.com
+  Contact:   contact@neoxyber.com
+  Security:  security@neoxyber.com
+
+================================================================================
+TRADE NAMES
+================================================================================
+
+The names Neoxyber, Q-SAG, QAID, did:qsag, and QSAG-OP are trade names of
+AIXYBER TECH LTD. As stated in Section 6 of the Apache License 2.0, this
+License does not grant permission to use these trade names except as required
+for reasonable and customary use in describing the origin of the Work.
+
+================================================================================
+THIRD-PARTY COMPONENTS
+================================================================================
+
+This software uses open source libraries including but not limited to:
+
+  requests        Apache 2.0        https://github.com/psf/requests
+  cryptography    Apache 2.0/BSD    https://github.com/pyca/cryptography
+  pydantic        MIT License       https://github.com/pydantic/pydantic
