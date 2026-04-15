@@ -2,7 +2,7 @@
 Ghost Agent Detection
 Defends against OWASP ASI03 — Identity Abuse via unregistered agents.
 
-MIT License — AIXYBER TECH LTD
+Apache License, Version 2.0 — AIXYBER TECH LTD
 """
 
 import hashlib

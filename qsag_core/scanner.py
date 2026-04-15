@@ -9,7 +9,7 @@ Real attack patterns from documented 2025-2026 breaches:
 - CVE-2025-6514 mcp-remote RCE
 - Anthropic mcp-server-git triple CVE chain
 
-MIT License — AIXYBER TECH LTD
+Apache License, Version 2.0 — AIXYBER TECH LTD
 """
 
 import re

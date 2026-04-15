@@ -75,4 +75,4 @@ Current sources include:
 ---
 
 *AIXYBER TECH LTD (trading as Neoxyber) — Company No. 16826340*
-*MIT Licence — Open source for researchers, students, and developers*
+*Apache License, Version 2.0 — Open source for researchers, students, and developers*

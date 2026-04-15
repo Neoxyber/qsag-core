@@ -2,7 +2,7 @@
 Prompt Injection and Memory Poisoning Scanner
 Defends against OWASP ASI01 (Agent Goal Hijack) and ASI04 (Memory Poisoning).
 
-MIT License — AIXYBER TECH LTD
+Apache License, Version 2.0 — AIXYBER TECH LTD
 """
 
 import re

@@ -7,12 +7,19 @@ exfiltration detection, jailbreak detection, and memory poisoning patterns.
 Built to address the OWASP Top 10 for Agentic Applications 2026.
 
 [![OWASP](https://img.shields.io/badge/OWASP%20Agentic-ASI01%20ASI03%20ASI06%20ASI05%20ASI07-brightgreen)](https://genai.owasp.org)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://python.org)
 
-> Open source, actively developing. Patterns are being added and improved.
-> If you find a gap or a bypass, please open an issue or email
-> security@neoxyber.com.
+> **Honest limitation.** This library uses precise regex patterns matched
+> against documented 2025–2026 attack signatures. It is intentionally
+> narrow to keep false positives low. It will NOT catch arbitrary
+> natural-language descriptions of harmful behaviour (for example,
+> a tool description that semantically describes exfiltration but does
+> not match a known signature). For semantic-level evaluation, combine
+> qsag-core pattern matching with the LLM evaluation layer in the
+> broader Neoxyber Q-SAG governance platform. Open source, actively
+> developing — if you find a gap or a bypass, please open an issue
+> or email security@neoxyber.com.
 
 ---
 
@@ -198,7 +205,7 @@ This library is provided as-is, without warranty. See LICENSE for full terms.
 
 ## License
 
-MIT License. Copyright 2026 AIXYBER TECH LTD (trading as Neoxyber).
+Apache License, Version 2.0. Copyright 2026 AIXYBER TECH LTD (trading as Neoxyber).
 Company Number 16826340. Registered in England and Wales.
 
 See [LICENSE](LICENSE) for full terms.

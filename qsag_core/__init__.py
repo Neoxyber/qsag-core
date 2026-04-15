@@ -4,7 +4,7 @@ MCP Tool Poisoning Scanner | Ghost Agent Detection | Prompt Injection Patterns
 
 OWASP Top 10 for Agentic Applications 2026 — ASI01, ASI02, ASI03, ASI04, ASI07
 
-MIT License
+Apache License, Version 2.0
 AIXYBER TECH LTD (trading as Neoxyber) — London, UK
 Company Number: 16826340
 https://github.com/Neoxyber/qsag-core
@@ -21,9 +21,9 @@ from .ghost import (
 )
 
 # Version must match setup.py exactly — checked by CI
-__version__ = "0.1.6"
+__version__ = "0.2.0"
 __author__ = "AIXYBER TECH LTD"
-__license__ = "MIT"
+__license__ = "Apache-2.0"
 
 __all__ = [
     # Scanner
