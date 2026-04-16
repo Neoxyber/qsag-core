@@ -1,41 +1,30 @@
 qsag-core
-Copyright 2026 AIXYBER TECH LTD (Company No. 16826340)
-trading as Neoxyber
-ICO Registration: ZC071900
+Copyright 2025-2026 AIXYBER TECH LTD (Company No. 16826340)
+Trading as Neoxyber
 
-This product is licensed under the Apache License, Version 2.0.
-You may obtain a copy of the License at:
+Licensed under the Apache License, Version 2.0.
 http://www.apache.org/licenses/LICENSE-2.0
 
-================================================================================
-PRODUCT
-================================================================================
+This is the open source security scanning library used inside
+Neoxyber Q-SAG (Quantum-Secure Autonomous Gateway).
 
-qsag-core is the open source Python client library for the Neoxyber Q-SAG
-Universal Agent Governance Standard. It is a product of AIXYBER TECH LTD
-trading as Neoxyber, registered in England and Wales.
+Company Number:     16826340
+ICO Registration:   ZC071900
+Registered Office:  48 Warwick Street, London, England, W1B 5AW
 
-  PyPI:      https://pypi.org/project/qsag-core/
-  Repo:      https://github.com/Neoxyber/qsag-core
-  Platform:  https://qsag.neoxyber.com
-  Contact:   contact@neoxyber.com
-  Security:  security@neoxyber.com
+Repository:         https://github.com/Neoxyber/qsag-core
+PyPI:               https://pypi.org/project/qsag-core/
+Full Platform:      https://github.com/Neoxyber/neoxyber-qsag
 
-================================================================================
-TRADE NAMES
-================================================================================
+Security:           security@neoxyber.com
+Contact:            contact@neoxyber.com
 
-The names Neoxyber, Q-SAG, QAID, did:qsag, and QSAG-OP are trade names of
-AIXYBER TECH LTD. As stated in Section 6 of the Apache License 2.0, this
-License does not grant permission to use these trade names except as required
-for reasonable and customary use in describing the origin of the Work.
+Trade names used by AIXYBER TECH LTD:
+  - Neoxyber
+  - Q-SAG (Quantum-Secure Autonomous Gateway)
+  - qsag-core
+  - QAID (Q-SAG Agent Identifier)
 
-================================================================================
-THIRD-PARTY COMPONENTS
-================================================================================
-
-This software uses open source libraries including but not limited to:
-
-  requests        Apache 2.0        https://github.com/psf/requests
-  cryptography    Apache 2.0/BSD    https://github.com/pyca/cryptography
-  pydantic        MIT License       https://github.com/pydantic/pydantic
+This License does not grant permission to use these trade names except as
+required for reasonable and customary use in describing the origin of the
+Work (see Apache License 2.0, Section 6).

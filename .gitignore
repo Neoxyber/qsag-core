@@ -18,3 +18,7 @@ venv/
 *.bak
 patch_*.py
 *_patch.py
+*.egg-info/
+dist/
+build/
+__pycache__/

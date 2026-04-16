@@ -6,7 +6,7 @@ MCP tool poisoning scanner, prompt injection detection, ghost agent detection,
 exfiltration detection, jailbreak detection, and memory poisoning patterns.
 Built to address the OWASP Top 10 for Agentic Applications 2026.
 
-[![OWASP](https://img.shields.io/badge/OWASP%20Agentic-ASI01%20ASI03%20ASI06%20ASI05%20ASI07-brightgreen)](https://genai.owasp.org)
+[![OWASP](https://img.shields.io/badge/OWASP%20Agentic-ASI01%20ASI03%20ASI05%20ASI06%20ASI07-brightgreen)](https://genai.owasp.org)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://python.org)
 
@@ -60,12 +60,12 @@ do not use the package. Report to security@neoxyber.com immediately.
 ## What Is Covered
 
 | OWASP Risk | Description | Module |
-|---|---|---|
-| ASI01 | Agent Goal Hijack — prompt injection | qsag_core.injection |
-| ASI03 | Identity Abuse — ghost agents | qsag_core.ghost |
-| ASI06 | Memory Poisoning — cross-session attacks | qsag_core.injection |
-| ASI05 | Privilege Escalation — exfiltration, secrets, jailbreak | qsag_core.injection |
-| ASI07 | Supply Chain — MCP tool poisoning | qsag_core.scanner |
+|------------|-------------|--------|
+| ASI01 | Agent Goal Hijack — prompt injection | `qsag_core.injection` |
+| ASI03 | Identity Abuse — ghost agents | `qsag_core.ghost` |
+| ASI05 | Privilege Escalation — exfiltration, secrets, jailbreak | `qsag_core.injection` |
+| ASI06 | Memory Poisoning — cross-session attacks | `qsag_core.injection` |
+| ASI07 | Supply Chain — MCP tool poisoning | `qsag_core.scanner` |
 
 ---
 
@@ -171,9 +171,10 @@ if is_ghost_attempt(api_key, registered_keys):
 ## Related Project
 
 qsag-core is the open-source security scanning library used inside
-Neoxyber Q-SAG — a full AI agent governance platform built by AIXYBER TECH LTD.
+[Neoxyber Q-SAG](https://github.com/Neoxyber/neoxyber-qsag) (Quantum-Secure Autonomous Gateway) —
+a full AI agent governance platform built by AIXYBER TECH LTD.
 
-- Live demo: https://neoxyber-qsag.onrender.com
+- Live demo: https://qsag.neoxyber.com
 - Full platform source: https://github.com/Neoxyber/neoxyber-qsag
 
 ---
@@ -205,18 +206,22 @@ This library is provided as-is, without warranty. See LICENSE for full terms.
 
 ## License
 
-Apache License, Version 2.0. Copyright 2026 AIXYBER TECH LTD (trading as Neoxyber).
+Apache License, Version 2.0. Copyright 2025-2026 AIXYBER TECH LTD (trading as Neoxyber).
 Company Number 16826340. Registered in England and Wales.
 
-See [LICENSE](LICENSE) for full terms.
+See [LICENSE](LICENSE) and [NOTICE](NOTICE) for full terms.
 
 ---
 
 ## Contact
 
-- Security: security@neoxyber.com
-- General: contact@neoxyber.com
-- Website: https://aixybertech.com
-- X: [@NeoxyberQSAG](https://x.com/NeoxyberQSAG)
+| Purpose | Contact |
+|---------|---------|
+| Security disclosures | security@neoxyber.com |
+| General enquiries | contact@neoxyber.com |
+| Website | https://neoxyber.com |
+| X / Twitter | [@NeoxyberQSAG](https://x.com/NeoxyberQSAG) |
+
+---
 
 *AIXYBER TECH LTD — Company No. 16826340 — Registered in England and Wales*
