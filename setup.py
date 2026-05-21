@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 setup(
     name="qsag-core",
     version="0.2.2",
-    description="Early-stage AI-agent runtime detection library — pattern-based scanners for MCP tool poisoning, prompt injection, ghost agents, exfiltration, jailbreaks, and memory poisoning. Open research, single maintainer, active development.",
+    description="Pattern-based runtime detection for AI-agent attacks: MCP tool poisoning, prompt injection, ghost agents, and related OWASP Agentic risks.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="AIXYBER TECH LTD (trading as Neoxyber)",

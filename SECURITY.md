@@ -1,84 +1,31 @@
 # Security Policy
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-**Email:** security@neoxyber.com
+Email **`security@aixybertech.com`** rather than opening a public issue.
 
-Please do not open a public GitHub issue for security vulnerabilities.
+For sensitive disclosures, encrypt with the maintainer's PGP key:
 
-We follow responsible disclosure:
-- Report the vulnerability to security@neoxyber.com
-- We will acknowledge within 48 hours
-- We will investigate and respond within 14 days
-- We will release a fix and credit you (unless you prefer anonymity)
-- We ask for 90 days before public disclosure
+```bash
+gpg --keyserver keys.openpgp.org --recv-keys A65AF5B7F02C9EB5B98023D70DB861BBF30F0D7B
+```
 
-## Actively Exploited Vulnerabilities
+Fingerprint: `A65AF5B7F02C9EB5B98023D70DB861BBF30F0D7B`
 
-In accordance with Article 24 of the EU Cyber Resilience Act (CRA),
-AIXYBER TECH LTD will notify relevant cybersecurity authorities of any
-actively exploited vulnerabilities discovered in qsag-core from
-11 September 2026 onwards.
+We aim to acknowledge reports within a few working days. We ask for 90 days before public disclosure where possible.
+
+## Verifying package authenticity
+
+Releases on PyPI use Trusted Publishing (OIDC) with cryptographic attestations (PEP 740). Verify the repository and workflow at `https://pypi.org/project/qsag-core/#history` → Attestations.
+
+If the attestation is missing or the repository does not match `https://github.com/Neoxyber/qsag-core`, do not use the package and email `security@aixybertech.com`.
 
 ## Scope
 
-This policy covers:
-- Detection bypass vulnerabilities in qsag-core pattern matching
-- Security vulnerabilities in qsag-core Python code
-- Supply chain issues affecting the qsag-core package on PyPI
+In scope:
+- Vulnerabilities in `qsag-core` Python code
+- Supply-chain issues affecting the PyPI package
+- Detection bypasses where a documented attack class is missed
 
-This policy does not cover:
-- False positives or false negatives in pattern detection (use GitHub Issues)
-- The Neoxyber Q-SAG platform (separate disclosure: security@neoxyber.com)
-
-## Supported Versions
-
-| Version | Supported |
-|---|---|
-| 0.1.x (latest) | ✅ Yes |
-| < 0.1.0 | ❌ No |
-
-## Verifying Package Authenticity
-
-Every release of qsag-core is published using PyPI Trusted Publishing
-and includes a cryptographic attestation (PEP 740) proving the package
-was built from the Neoxyber/qsag-core repository via the publish.yml
-workflow. No API tokens are stored anywhere in the pipeline.
-
-**How to verify you have the authentic package:**
-
-```bash
-# Install the verification tool
-pip install pypi-attestations
-
-# Verify the package attestation
-python -m pypi_attestations verify \
-  --repository Neoxyber/qsag-core \
-  qsag_core-0.1.0-py3-none-any.whl
-```
-
-Or check online at:
-https://pypi.org/project/qsag-core/#history
-Click any release → scroll to "Attestations" → verify Repository matches
-`https://github.com/Neoxyber/qsag-core`
-
-**What to look for:**
-- Publisher: GitHub Actions
-- Repository: Neoxyber/qsag-core
-- Workflow: publish.yml
-
-If any of these do not match, do not use the package and report to
-security@neoxyber.com immediately.
-
-## Cybersecurity Policy (CRA Article 24)
-
-AIXYBER TECH LTD maintains the following cybersecurity practices for qsag-core:
-
-- All releases published via PyPI Trusted Publishing (OIDC) — no stored API tokens
-- All releases include cryptographic attestations (PEP 740)
-- Dependencies monitored via GitHub Dependabot
-- Tests run against Python 3.9, 3.10, 3.11, 3.12 on every commit
-- Vulnerability reports acknowledged within 48 hours
-
-*AIXYBER TECH LTD — Company No. 16826340 — Registered in England and Wales*
-*ICO Reference: ZC071900*
+Out of scope (use regular issues instead):
+- False positives or detection-coverage gaps

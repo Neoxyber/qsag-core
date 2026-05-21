@@ -1,30 +1,4 @@
 qsag-core
-Copyright 2025-2026 AIXYBER TECH LTD (Company No. 16826340)
-Trading as Neoxyber
-
+Copyright 2025-2026 AIXYBER TECH LTD
 Licensed under the Apache License, Version 2.0.
-http://www.apache.org/licenses/LICENSE-2.0
-
-This is the open source security scanning library used inside
-Neoxyber Q-SAG (Quantum-Secure Autonomous Gateway).
-
-Company Number:     16826340
-ICO Registration:   ZC071900
-Registered Office:  48 Warwick Street, London, England, W1B 5AW
-
-Repository:         https://github.com/Neoxyber/qsag-core
-PyPI:               https://pypi.org/project/qsag-core/
-Full Platform:      https://github.com/Neoxyber/neoxyber-qsag
-
-Security:           security@neoxyber.com
-Contact:            contact@neoxyber.com
-
-Trade names used by AIXYBER TECH LTD:
-  - Neoxyber
-  - Q-SAG (Quantum-Secure Autonomous Gateway)
-  - qsag-core
-  - QAID (Q-SAG Agent Identifier)
-
-This License does not grant permission to use these trade names except as
-required for reasonable and customary use in describing the origin of the
-Work (see Apache License 2.0, Section 6).
+https://www.apache.org/licenses/LICENSE-2.0
